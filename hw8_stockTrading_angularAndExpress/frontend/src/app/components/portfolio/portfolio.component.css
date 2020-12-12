@@ -1,0 +1,20 @@
+.portfolioHeading {
+    padding: 30px 0;
+}
+
+.companyName {
+    color: gray;
+    padding: 0 10px;
+}
+
+.card-footer button {
+    margin: 0 5px;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.portfolioCardHeader {
+    cursor: pointer;
+}

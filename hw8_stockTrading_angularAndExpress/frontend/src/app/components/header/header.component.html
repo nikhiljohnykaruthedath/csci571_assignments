@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark flex-grow-1 text-right">
+    <a class="navbar-brand" href="/">Stock Search</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-right navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item {{this.isSearchActive}}">
+                <a class="nav-link btn {{this.isSearchButtonSelected}}" href="/">Search</a>
+            </li>
+            <li class="nav-item {{this.isWatchlistActive}}">
+                <a class="nav-link btn {{this.isWatchlistButtonSelected}}" href="/watchlist">Watchlist</a>
+            </li>
+            <li class="nav-item {{this.isPortfolioActive}}">
+                <a class="nav-link btn {{this.isPortfolioButtonSelected}}" href="/portfolio">Portfolio</a>
+            </li>
+        </ul>
+    </div>
+</nav>

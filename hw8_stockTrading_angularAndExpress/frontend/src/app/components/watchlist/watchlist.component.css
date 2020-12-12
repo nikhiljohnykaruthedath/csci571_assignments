@@ -1,0 +1,26 @@
+.watchListCard {
+    padding: 0 5px !important;
+    cursor: pointer;
+}
+
+.row1Margin {
+    margin: 0 5px;
+    padding: 0 0 10px 0;
+}
+
+.row2Margin {
+    margin: 0 5px;
+    padding: 0 0 20px 0;
+}
+
+.watchListHeading {
+    padding: 30px 0;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.changeValue {
+    margin: 0 5px;
+}

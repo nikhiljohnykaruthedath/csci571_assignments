@@ -1,0 +1,171 @@
+body {
+    background: #56548d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#result {
+    font-weight: bold;
+}
+
+.mainContainer {
+    background: #56548d;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+sup {
+    color: red;
+}
+
+input {
+    border: 0;
+    border-radius: 5px;
+    margin: 0 15px;
+    padding: 3px;
+}
+.searchContainer {
+    background: #eceaec;
+    width: 1038px;
+    margin: 14px 200px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 40px 0;
+}
+    
+.actionButtons {
+    padding: 5px 20px;
+    background: white;
+    border: 0;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.actionButtons:hover {
+    background: #ddd;
+}
+
+.actionButtons:focus {
+    outline: 2px solid black;
+    outline-style: revert;
+}
+
+input:focus {
+    outline: 2px solid black;
+    outline-style: revert;
+}
+
+.divider {
+    border-top: 1px solid #eceaec;
+    width: 1030px;
+    margin: 0 200px;
+    padding: 7px 5px;
+}
+
+.resultsContainer {
+    display: none;
+}
+
+/* Style the tab */
+.tabs {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 1038px;
+    margin: 0 200px;
+}
+
+/* Style the buttons inside the tab */
+.tabLinks {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tabs button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tabs button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabContent {
+    display: none;
+    padding: 6px 0;
+    border-top: none;
+    margin: 30px 200px;
+    width: 1038px;
+}
+
+td {
+    width: 738px;
+    border: 1px solid #d9d8d7;
+    text-align: center;
+    background: #eceaec;
+}
+
+th {
+    width: 300px;
+    padding: 0 5px;
+    background: #d9d8d7;
+    text-align: left;
+    border: 1px solid #cac9c7
+}
+
+.news {
+    background: #eceaec;
+    height: 110px;
+    border-radius: 5px;
+    margin: 15px 0px;
+}
+
+.newsImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    float: left;
+    padding: 15px;
+}
+
+.newsTitle {
+    font-weight: bold;
+    padding: 15px 0 0 0;
+}
+
+.changeDiv, .changePercentDiv {
+    display: inline;
+}
+
+.ellipsis {
+    -webkit-line-clamp: 5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.errorMessage {
+    width: 1038px;
+    margin: 0 519px;
+    font-weight: bold;
+}
+
+.chartLink {
+    color: red;
+}

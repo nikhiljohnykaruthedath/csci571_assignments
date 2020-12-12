@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ ticker }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-inline">
+            <div class="col-md-12 form-group">
+                <label class="col-form-label">Current Price: </label>
+                <label class="col-form-label">{{ currentPrice }}</label>
+            </div>
+            <div class="col-md-12 form-group">
+                <label class="col-form-label" for="name">Quantity</label>
+                <input type="number" min="0" class="form-control" (input)="setTotal($event)">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="mr-auto">Total:
+        <span>{{ getTotal() }}</span>
+    </div>
+    <button [disabled]="isDisabled" type="button" class="btn btn-success" (click)="sell()">Sell</button>
+</div>

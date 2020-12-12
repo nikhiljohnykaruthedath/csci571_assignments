@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Libre Baskerville", serif;
+	font-weight: 700;
+}
+
+.header {
+	color: #0639c1;
+	padding: 30px 100px;
+	font-size: 40px;
+	border-bottom: 1px solid black;
+}
+
+.nav {
+	width: 1200px;
+	margin: 0px 90px;
+	font-size: 15px;
+}
+
+.nav div {
+	display: inline-block;
+	margin: 20px 8px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 100;
+}
+
+.activeLink {
+	color: #0639c1;
+}
+
+.banner {
+	background: url("https://csci571.com/hw/hw3/images/Cutlery.png");
+	margin: 20px 100px;
+	height: 650px;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position-x: 70px;
+	background-position-y: -100px;
+	position: relative;
+	width: 1200px;
+}
+
+.bannerTitle {
+	color: #0639c1;
+	font-size: 60px;
+	margin: 80px 50px;
+	display: inline-block;
+}
+
+.shopNowButton {
+	background: white;
+	padding: 15px 20px;
+	margin: 0 60px;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 100;
+}
+
+.galleryTitle {
+	width: 500px;
+	padding: 40px 20px 0 20px;
+	color: #0639c1;
+	font-size: 30px;
+	margin: 0 450px;
+}
+
+.container {
+	width: 1400px;
+	padding: 0px 0 40px 0;
+}
+
+.gallery2 {
+	margin: 30px 0;
+}
+
+.image {
+  width: 590px;
+  height: 500px;
+  margin: 50px 0;
+}
+
+.image1 {
+	display: inline-block;
+	margin: 0px 30px 0 100px;
+}
+
+.image2 {
+	display: inline-block;
+}
+.image img {
+	width: 590px;
+	height: 500px;
+	border-right: 15px solid #a4e1e9;
+}
+
+.imageTitle1 {
+	color: #0639c1;
+	font-size: 20px;
+	display: inline;
+	padding: 0 250px;
+}
+
+.imageTitle2 {
+	color: #0639c1;
+	font-size: 20px;
+	display: inline;
+	padding: 0 230px;
+}
+
+.imageTitle3 {
+	color: #0639c1;
+	font-size: 20px;
+	display: inline;
+	padding: 0 230px;
+}
+
+.imageTitle4 {
+	color: #0639c1;
+	font-size: 20px;
+	display: inline;
+	padding: 0 230px;
+}

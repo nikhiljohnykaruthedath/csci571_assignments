@@ -1,0 +1,274 @@
+<div class="container mainContainer" *ngIf="isLoading === true">
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col">
+            <mat-spinner [diameter]="70"></mat-spinner>
+        </div>
+        <div class="col-5"></div>
+    </div>
+</div>
+<div class="container mainContainer" *ngIf="isValidTicker === false && isLoading == false">
+    <div class="alert alert-danger text-center" role="alert">
+        No results found. Please enter valid Ticker
+    </div>
+</div>
+<div class="container mainContainer" *ngIf="isValidTicker === true && isLoading == false">
+    <div class="row">
+        <div class="col-12">
+            <div id="alertContainer"></div>
+        </div>
+    </div>
+    <!-- DETAILS -->
+    <div class="row">
+        <div class="col-sm">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <span class="h1">{{description ? description.ticker : null}}</span>
+                                <span class="watchlistStar" *ngIf="isInWatchlist === false"
+                                    (click)="toggleWatchlist();">
+                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-star"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                    </svg>
+                                </span>
+                                <span class="watchlistStarFilled" *ngIf="isInWatchlist === true"
+                                    (click)="toggleWatchlist();">
+                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-star-fill"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <span
+                                class="float-right h1 {{summaryData ? summaryData.color.value : null}}">{{summaryData ? summaryData.lastPrice.value : null}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col subHeading h2">{{description ? description.name : null}}</div>
+                        <div class="col">
+                            <div class="float-right">
+                                <div class="row">
+                                    <div class="col detailsChanges">
+                                        <span class="arrowIcon {{summaryData ? summaryData.color.value : null}}"
+                                            *ngIf="getIcon(getChangeValue(summaryData.lastPrice.value, summaryData.prevClose.value)) === -1">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-caret-down-fill" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                            </svg>
+                                        </span>
+                                        <span class="arrowIcon {{summaryData ? summaryData.color.value : null}}"
+                                            *ngIf="getIcon(getChangeValue(summaryData.lastPrice.value, summaryData.prevClose.value)) === 1">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-caret-up-fill positive" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                            </svg>
+                                        </span>
+                                        <span class="arrowIcon {{summaryData ? summaryData.color.value : null}}"
+                                            *ngIf="getIcon(getChangeValue(summaryData.lastPrice.value, summaryData.prevClose.value)) === -1">
+                                        </span>
+                                        <span
+                                            class="changeValue positive h2 {{summaryData ? summaryData.color.value : null}}">{{summaryData ? summaryData.change.value : null}}</span>
+                                        <span
+                                            class="changePercentValue positive h2 {{summaryData ? summaryData.color.value : null}}">{{summaryData ? summaryData.changePercent.value : null}}</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">{{description ? description.exchangeCode : null}}</div>
+                        <div class="col">
+                            <span class="float-right">{{summaryData ? summaryData.currentDateTime.value : null}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span class="">
+                                <button type="button" class="btn btn-success"
+                                    (click)="openBuyModal(content)">Buy</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="marketStatus">
+        <div class="col marketStatusOpen" *ngIf="isMarketOpen">
+            <span>{{ getMarketStatusText() }}</span>
+        </div>
+        <div class="col marketStatusClose" *ngIf="!isMarketOpen">
+            <span>{{ getMarketStatusText() }}</span>
+        </div>
+    </div>
+    <mat-tab-group animationDuration="0ms" mat-stretch-tabs (selectedTabChange)="displayHistoryChart($event)">
+        <mat-tab label="Summary">
+            <!-- DESCRIPTION -->
+            <div class="container summaryTabData">
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <span>{{summaryData ? summaryData.highPrice.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.highPrice.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <span>{{summaryData ? summaryData.lowPrice.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.lowPrice.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <span>{{summaryData ? summaryData.openPrice.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.openPrice.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <span>{{summaryData ? summaryData.prevClose.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.prevClose.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <span>{{summaryData ? summaryData.volume.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.volume.value : null}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col text-center" *ngIf="isMarketOpen">
+                                        <span>{{summaryData ? summaryData.midPrice.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.midPrice.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center" *ngIf="isMarketOpen">
+                                        <span>{{summaryData ? summaryData.askPrice.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.askPrice.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center" *ngIf="isMarketOpen">
+                                        <span>{{summaryData ? summaryData.askSize.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.askSize.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center" *ngIf="isMarketOpen">
+                                        <span>{{summaryData ? summaryData.bidPrice.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.bidPrice.value : null}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center" *ngIf="isMarketOpen">
+                                        <span>{{summaryData ? summaryData.bidSize.title : null}}</span>
+                                        <span>{{summaryData ? summaryData.bidSize.value : null}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row descriptionTitle">
+                                    <span class="h6">Company's Description</span>
+                                </div>
+                                <div class="row">Start Date: {{description ? description.startDate : null}}</div>
+                                <div class="row descriptionData">{{description ? description.description : null}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="row">
+                            <highcharts-chart [Highcharts]="DailyCharts" [constructorType]="'stockChart'"
+                                [options]="dailyChartsOptions" style="width:100%;">
+                            </highcharts-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Top News">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 d-flex align-items-stretch" *ngFor="let news of articles; let i = index;">
+                        <div class="card bg-light newsCard" (click)="openNewsDialog(news)">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <img class="card-img newsImage" src={{news.urlToImage}} alt="">
+                                    </div>
+                                    <div class="col-sm">
+                                        {{news.title}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+        <mat-tab label="Charts" (click)="loadHistoryCharts();">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <highcharts-chart [Highcharts]="HistoricalCharts" [constructorType]="'stockChart'"
+                            [options]="historicalChartsOptions" style="width:100%; height:100vh;">
+                        </highcharts-chart>
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{ this.selectedTicker }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-inline">
+                <div class="col-md-12 form-group">
+                    <label class="col-form-label">Current Price: </label>
+                    <label class="col-form-label currentPrice">{{ summaryData.lastPrice.value }}</label>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label class="col-form-label" for="name">Quantity</label>
+                    <input type="number" min="0" class="form-control" (input)="setTotal($event)">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="mr-auto">Total:
+            <span>{{ getTotal() }}</span>
+        </div>
+        <button [disabled]="modalBuyIsDisabled" type="button" class="btn btn-success"
+            (click)="buyFromDetailsPage()">Buy</button>
+    </div>
+</ng-template>

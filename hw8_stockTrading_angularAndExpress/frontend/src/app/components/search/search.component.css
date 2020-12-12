@@ -1,0 +1,19 @@
+.searchHeading {
+    font-weight: bold;
+    text-align: center;
+    margin: 100px 0 20px 0;
+    font-size: 4.0rem;
+}
+
+.searchForm {
+    text-align: center;
+}
+
+.searchInput {
+    display: inline;
+    border: 1px solid #6e40f4;
+    border-radius: 100px;
+    height: 40px;
+    width: 200px;
+    padding: 10px;
+}

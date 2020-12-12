@@ -1,0 +1,22 @@
+.navbar {
+  background: #6e40f4;
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.btn {
+  box-shadow: none;
+  color: #b59aff;
+  margin: 5px 0;
+  text-align: right;
+  padding: 10px;
+}
+
+.btnSelected {
+  border: 1px solid white;
+  border-radius: 12px;
+  color: white;
+}
